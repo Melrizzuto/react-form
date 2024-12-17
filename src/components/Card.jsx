@@ -38,7 +38,7 @@ function Card({ title, image, content, tags, published, onDelete, id }) {
                         </span>
                     ))}
                 </div>
-                <button className="btn btn-warning btn-sm mt-2 gx-3">Leggi di più</button>
+                <button className={`btn btn-warning btn-sm mt-2 gx-3 ${style.cardButton}`}>Leggi di più</button>
             </div>
         </div>
     ) : null;
