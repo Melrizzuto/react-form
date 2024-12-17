@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const MyForm = ({ onAddPost, posts }) => {
+function MyForm({ onAddPost, posts }) {
 
     //gli stati del form
     const [title, setTitle] = useState("");
@@ -47,6 +47,7 @@ const MyForm = ({ onAddPost, posts }) => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="Inserisci il titolo del nuovo post"
+                    required
                 />
             </div>
 

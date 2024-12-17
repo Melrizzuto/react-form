@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Card from "./Card";
-import MyForm from "./MyForm";
+import FormContainer from "./FormContainer";
 import postsData from "../data/posts";
 
 function Main() {
@@ -11,13 +11,11 @@ function Main() {
         setPosts([...posts, newPost]);
     };
 
-    //fn per eliminare un post tramite id
+    // fn per eliminare un post tramite id
     const handleDeletePost = (id) => {
         const updatedPosts = posts.filter(post => post.id !== id);
         setPosts(updatedPosts);
     };
-
-
 
     return (
         <main className="container d-flex flex-wrap justify-content-center p-4 mt-4">
@@ -37,9 +35,11 @@ function Main() {
                 ))
             }
 
-            <MyForm
+            {/* componente FormContainer per gestire il form */}
+            <FormContainer
                 onAddPost={handleAddPost}
-                posts={posts} />
+                posts={posts}
+            />
         </main>
     );
 }
