@@ -21,7 +21,6 @@ function Card({ title, image, content, tags, published, onDelete, id }) {
             <i
                 onClick={() => onDelete(id)}
                 className={`fa-solid fa-trash ${style.iconsDelete}`}
-                title="Elimina"
             ></i>
 
             {/* Immagine della card */}
