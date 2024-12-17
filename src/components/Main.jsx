@@ -11,7 +11,7 @@ function Main() {
         setPosts([...posts, newPost]);
     };
 
-    //fn per eliminare un post
+    //fn per eliminare un post tramite id
     const handleDeletePost = (id) => {
         const updatedPosts = posts.filter(post => post.id !== id);
         setPosts(updatedPosts);
