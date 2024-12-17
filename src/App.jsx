@@ -1,8 +1,7 @@
-
 import Header from "./components/Header"
 import Main from "./components/Main"
 import Footer from "./components/Footer"
-import MyForm from "./components/MyForm"
+
 
 function App() {
 
@@ -11,7 +10,6 @@ function App() {
     <>
       <Header />
       <Main />
-      <MyForm />
       <Footer />
     </>
   )

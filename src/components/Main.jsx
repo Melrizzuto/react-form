@@ -1,5 +1,7 @@
 import Card from "./Card";
 import posts from "../data/posts";
+import MyForm from "./MyForm"
+
 
 function Main() {
     return (
@@ -17,7 +19,10 @@ function Main() {
                     />
                 ))
             }
+            <MyForm
+            />
         </main>
+
 
     );
 }

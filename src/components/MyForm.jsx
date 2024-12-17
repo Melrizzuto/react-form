@@ -1,22 +1,45 @@
-function MyForm() {
+import { useState } from "react";
+
+const MyForm = () => {
+    const [post, setPost] = useState({
+        title: ""
+    });
+
+    const handleInput = (e) => {
+        const newPost = { ...post };
+        newPost[e.target.name] = e.target.value;
+        setPost(newPost);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
-        <form className="mx-4">
+        <form onSubmit={handleSubmit} className="p-4 rounded shadow-lg bg-light m-auto mb-4">
+            <h3 className="mb-4 text-center text-secondary">Aggiungi un nuovo post</h3>
+
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Indirizzo email</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <div id="emailHelp" className="form-text">Non condivideremo la tua email con nessuno.</div>
+                <label htmlFor="post" className="form-label fw-bold">
+                    Titolo del tuo nuovo post
+                </label>
+                <input
+                    type="text"
+                    className="form-control"
+                    name="title"
+                    value={post.title}
+                    onChange={handleInput}
+                    placeholder="Inserisci il titolo del nuovo post"
+                />
             </div>
-            <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" />
+
+            <div className="d-grid">
+                <button type="submit" className="btn btn-secondary">
+                    Invia
+                </button>
             </div>
-            <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                <label className="form-check-label" htmlFor="exampleCheck1">Ricordami</label>
-            </div>
-            <button type="submit" className="btn btn-primary">Invia</button>
         </form>
-    )
+    );
 };
 
 export default MyForm;
