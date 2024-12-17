@@ -1,6 +1,6 @@
 import style from './Card.module.css';
 
-function Card({ title, image, content, tags, published }) {
+function Card({ title, image, content, tags, published, onDelete, id }) {
 
     // imgs di default se non c'è
     const defaultImage = 'https://placehold.co/600x400';
@@ -27,7 +27,12 @@ function Card({ title, image, content, tags, published }) {
                         </span>
                     ))}
                 </div>
-                <a href="#" className={style.cardButton}>Leggi di più</a>
+                <button
+                    onClick={() => onDelete(id)}
+                    className="btn btn-danger btn-sm mt-2"
+                >
+                    Elimina
+                </button>
             </div>
         </div>
     ) : null;

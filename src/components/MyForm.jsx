@@ -1,18 +1,26 @@
 import { useState } from "react";
 
-const MyForm = () => {
-    const [post, setPost] = useState({
-        title: ""
-    });
+const MyForm = ({ onAddPost, posts }) => {
+    const [title, setTitle] = useState("");
 
     const handleInput = (e) => {
-        const newPost = { ...post };
-        newPost[e.target.name] = e.target.value;
-        setPost(newPost);
+        setTitle(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (title) {
+            const newPost = {
+                id: posts.length + 1,
+                title: title,
+                content: "",
+                image: "",
+                tags: [],
+                published: true,
+            };
+            onAddPost(newPost);
+            setTitle("");
+        }
     };
 
     return (
@@ -27,7 +35,7 @@ const MyForm = () => {
                     type="text"
                     className="form-control"
                     name="title"
-                    value={post.title}
+                    value={title}
                     onChange={handleInput}
                     placeholder="Inserisci il titolo del nuovo post"
                 />
@@ -35,7 +43,7 @@ const MyForm = () => {
 
             <div className="d-grid">
                 <button type="submit" className="btn btn-secondary">
-                    Invia
+                    Aggiungi
                 </button>
             </div>
         </form>
