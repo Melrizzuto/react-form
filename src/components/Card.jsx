@@ -13,10 +13,21 @@ function Card({ title, image, content, tags, published, onDelete, id }) {
         lowcost: 'success',
         expansive: 'danger',
     };
+
     // utilizzo l'operatore ternario per la condizione di published
     return published ? (
         <div className={`card m-1 ${style.card}`}>
+            {/* Icona elimina posizionata in alto a destra */}
+            <i
+                onClick={() => onDelete(id)}
+                className={`fa-solid fa-trash ${style.iconsDelete}`}
+                title="Elimina"
+            ></i>
+
+            {/* Immagine della card */}
             <img src={imgSrc} className={`card-img-top ${style.cardImg}`} alt={title} />
+
+            {/* Corpo della card */}
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{content}</p>
@@ -27,12 +38,7 @@ function Card({ title, image, content, tags, published, onDelete, id }) {
                         </span>
                     ))}
                 </div>
-                <button
-                    onClick={() => onDelete(id)}
-                    className="btn btn-danger btn-sm mt-2"
-                >
-                    Elimina
-                </button>
+                <button className="btn btn-warning btn-sm mt-2 gx-3">Leggi di più</button>
             </div>
         </div>
     ) : null;
